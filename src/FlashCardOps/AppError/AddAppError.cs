@@ -24,11 +24,11 @@ namespace FlashCardOps.AppError
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiRequestBody("application/json", typeof(AddErrorReqMsg))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(AddErrorRespMsg), Description = "The OK response")]
-        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
+        public AddErrorRespMsg Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
         {
             _logger.LogInformation("Application error received for resolution HTTP Entry point");
             var appErrorJson = new StreamReader(req.Body).ReadToEnd();
-            AddErrorRespMsg nsgPacket = new()
+            AddErrorRespMsg msgPacket = new()
             {
                 UserProvidedErrorDetails = appErrorJson,
                 Response = new()
@@ -38,21 +38,21 @@ namespace FlashCardOps.AppError
 
                 }
             };
+            return msgPacket;
+            //var bodyStream = new MemoryStream();
+            //var writer = new StreamWriter(bodyStream);
+            //writer.Write(JsonConvert.SerializeObject(msgPacket));
+            //writer.Flush();
+            //bodyStream.Position = 0;
+            //var response = req.CreateResponse(HttpStatusCode.Created);
 
-            var bodyStream = new MemoryStream();
-            var writer = new StreamWriter(bodyStream);
-            writer.Write(JsonConvert.SerializeObject(appErrorJson));
-            writer.Flush();
-            bodyStream.Position = 0;
-            var response = req.CreateResponse(HttpStatusCode.Created);
-
-            response.Body = bodyStream;
-            response.Headers.Add("Content-Type", "application/json; charset=utf-8");
+            //response.Body = bodyStream;
+            //response.Headers.Add("Content-Type", "application/json; charset=utf-8");
 
 
-            _logger.LogInformation("queue updated with inputs.");
+            //_logger.LogInformation("queue updated with inputs.");
 
-            return response;
+            //return response;
 
         }
     }
