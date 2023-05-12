@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/Forge.OpenAI/bin/Debug
+/src/Forge.OpenAI/obj
+/src/TechCards.lib/bin/Debug/net6.0
+/src/TechCards.lib/obj
+/src/TechCards.Repository/bin/Debug/net6.0
+/src/TechCards.Repository/obj
+/src/TechCards.Services/bin/Debug/net6.0
+/src/TechCards.Services/obj

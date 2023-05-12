@@ -1,0 +1,7 @@
+{
+  "applicationName": "myapp",
+  "errorMessage": "Unhandled exception. System.IO.FileNotFoundException: Could not find file 'C:\temp\file.txt'.File name: 'C:\temp\file.txt'at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options) at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, ",
+  "language": "C#",
+  "framework": ".NET",
+  "version": "6"  
+}
