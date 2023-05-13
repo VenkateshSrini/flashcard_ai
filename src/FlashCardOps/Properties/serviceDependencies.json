@@ -1,7 +1,12 @@
 {
   "dependencies": {
+    "secrets1": {
+      "type": "secrets",
+      "connectionId": null
+    },
     "appInsights1": {
-      "type": "appInsights"
+      "type": "appInsights",
+      "connectionId": "APPLICATIONINSIGHTS_CONNECTION_STRING"
     },
     "storage1": {
       "type": "storage",
@@ -11,10 +16,6 @@
       "type": "storage",
       "connectionId": "queue_conn",
       "dynamicId": null
-    },
-    "secrets1": {
-      "type": "secrets",
-      "connectionId": null
     }
   }
 }
